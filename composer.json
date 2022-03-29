@@ -3,9 +3,7 @@
     "autoload": {
         "psr-4": {
             "Engine\\": "engine",
-            "Engine\\DI\\": "engine/DI",
-            
-            "U273012\\MyCms\\": "src/"
+            "Engine\\DI\\": "engine/DI"   
         }
     },
     "authors": [
@@ -14,5 +12,7 @@
             "email": "70834200+grig9@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "kint-php/kint": "^4.1"
+    }
 }

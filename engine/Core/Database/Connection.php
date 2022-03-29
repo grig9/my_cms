@@ -22,11 +22,11 @@ class Connection
   private function connect()
   {
     $config = [
-      'host'     => '',
-      'db_name'  => '',
-      'username' => '',
+      'host'     => 'localhost',
+      'db_name'  => 'my_cms',
+      'username' => 'root',
       'password' => '',
-      'charset'  => '',
+      'charset'  => 'utf8',
     ];
 
     $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db_name'].';charset='.$config['charset'];
@@ -43,5 +43,19 @@ class Connection
   public function execute($sql)
   {
     $sth = $this->link->prepare($sql);
+    return $sth->execute();
+  }
+
+  /**
+   * @param $sql
+   * @return array
+   */
+  public function query($sql)
+  {
+    $sth = $this->link->prepare($sql);
+    $sth->execute();
+
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
   }
 }

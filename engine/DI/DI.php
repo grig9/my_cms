@@ -14,7 +14,6 @@ class DI
    * @param $value
    * @return $this
    */
-
   public function set($key, $value)
   {
     $this->container[$key] = $value;
