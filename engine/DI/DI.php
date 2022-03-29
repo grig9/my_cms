@@ -37,6 +37,7 @@ class DI
    */
   public function has($key)
   {
-    return isset($this->container[$key]);
+    //оператор объединения с null
+    return $this->container[$key] ?? null;
   }
 }

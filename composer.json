@@ -1,0 +1,18 @@
+{
+    "name": "u273012/my_cms",
+    "autoload": {
+        "psr-4": {
+            "Engine\\": "engine",
+            "Engine\\DI\\": "engine/DI",
+            
+            "U273012\\MyCms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "grig9",
+            "email": "70834200+grig9@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
