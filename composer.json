@@ -3,7 +3,9 @@
     "autoload": {
         "psr-4": {
             "Engine\\": "engine",
-            "Engine\\DI\\": "engine/DI"   
+            "Cms\\": "cms",
+            "Engine\\DI\\": "engine/DI"
+
         }
     },
     "authors": [

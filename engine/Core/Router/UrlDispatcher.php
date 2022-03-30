@@ -47,7 +47,24 @@ class UrlDispatcher
 
   public function register($method, $pattern, $controller)
   {
-    $this->routes[strtoupper($method)][$pattern] = $controller;
+    $convert = $this->convertPattern($pattern);
+    d($convert);
+    echo '<br>';
+    $this->routes[strtoupper($method)][$convert] = $controller;
+  }
+
+  private function convertPattern($pattern)
+  {
+    if(strpos($pattern, '(') === false) {
+      return $pattern;
+    }
+
+    return preg_replace_callback('#\((\w+):(\w+)\)#', [$this, 'replacePattern'], $pattern);
+  }
+
+  private function replacePattern($matches)
+  {
+    return '(?<' . $matches[1] . '>'. strtr($matches[2], $this->patterns) . ')';
   }
 
   /**
@@ -77,9 +94,11 @@ class UrlDispatcher
     foreach($this->routes($method) as $route => $controller)
     {
       $pattern = '#^' . $route . '$#s';
+      d($pattern);
 
       if(preg_match($pattern, $uri, $parameters))
       {
+        d($parameters);
         return new DispatchedRoute($controller, $parameters);
       }
     }

@@ -2,11 +2,18 @@
 
 namespace Engine;
 
-abstract class controller
-{
-  private $di;
+use Engine\DI\DI;
 
-  public function __construct($di)
+abstract class Controller
+{
+  /**
+   * @var \Engine\DI\DI
+   */
+  protected $di;
+
+  protected $db;
+
+  public function __construct(DI $di)
   {
     $this->di = $di;  
   }

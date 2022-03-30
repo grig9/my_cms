@@ -32,7 +32,6 @@ class Router
       'controller' => $controller,
       'method'     => $method,
     ];
-
   }
 
   /**
