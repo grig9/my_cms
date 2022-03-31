@@ -1,3 +1,4 @@
-Index Template42341
-
-<?= $name ;?>
+<?php $this->theme->header(); ?>
+<br>
+Index Template Name = <?=$name ;?>
+<br>

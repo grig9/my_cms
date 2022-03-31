@@ -2,13 +2,17 @@
 
 namespace Engine\Core\Template;
 
+use Engine\Core\Template\Theme;
+
 use Exception;
 
 class View
 {
+  protected $theme;
+
   public function __construct()
   {
-    
+    $this->theme = new Theme();
   }
 
   /**
@@ -27,18 +31,19 @@ class View
       );
     }
 
-    extract($vars);
+    $this->theme->setData($vars);
+    extract($vars); // формирует переменные из ассоциативного массива
 
-    ob_start();
-    ob_implicit_flush(0);
+    ob_start(); // включение буферизации вывода
+    ob_implicit_flush(0); // включение/выключение неявного сброса
 
     try {
       require $templatePath;
     } catch (\Exception $e) {
-        ob_end_clean();
+        ob_end_clean(); // очистить (стереть) буфер вывода и отключить буферизацию вывода
         throw $e;
     }
 
-    echo ob_get_clean();
+    echo ob_get_clean(); // получить содержимое текущего буфера и удалить его    
   }
 }

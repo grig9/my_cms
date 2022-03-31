@@ -5,6 +5,8 @@ namespace Engine\Service\View;
 use Engine\Service\AbstractProvider;
 use Engine\Core\Template\View;
 
+use Engine\DI\DI;
+
 class Provider extends AbstractProvider
 {
   /**

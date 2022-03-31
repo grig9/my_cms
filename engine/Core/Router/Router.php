@@ -59,7 +59,6 @@ class Router
       }
     }
 
-
     return $this->dispatcher;
   }
 
