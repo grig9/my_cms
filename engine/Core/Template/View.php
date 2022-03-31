@@ -8,8 +8,14 @@ use Exception;
 
 class View
 {
+  /**
+   * @var \Engine\Core\Template\Theme
+   */
   protected $theme;
-
+  
+  /**
+   * View constructor.
+   */
   public function __construct()
   {
     $this->theme = new Theme();

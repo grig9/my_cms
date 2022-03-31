@@ -16,6 +16,9 @@ class Theme
    */
   public $url = '';
 
+  /**
+   * @var array
+   */
   protected $data = [];
 
   /**
@@ -34,19 +37,51 @@ class Theme
     $this->loadTemplateFile($file);
   }
 
+  /**
+   * @param string $name
+   */
   public function footer($name = '')
   {
+    $name = (string) $name;
+    $file = 'footer';
+    
+    if($name !== '')
+    {
+      $file = sprintf(self::RULES_NAME_FILE['footer'], $name);
+    }
 
+    $this->loadTemplateFile($file);
   }
 
+  /**
+   * @param string $name
+   */
   public function sidebar($name = '')
   {
+    $name = (string) $name;
+    $file = 'sidebar';
+    
+    if($name !== '')
+    {
+      $file = sprintf(self::RULES_NAME_FILE['sidebar'], $name);
+    }
 
+    $this->loadTemplateFile($file);
   }
-
+  /**
+   * @param string $name
+   * @param array $data
+   */
   public function block($name = '', $data = [])
   {
+    $name = (string) $name;
+    
+    if($name !== '')
+    {
+      $this->loadTemplateFile($name, $data);
+    }
 
+    
   }
 
   /**
