@@ -68,6 +68,7 @@ class Theme
 
     $this->loadTemplateFile($file);
   }
+  
   /**
    * @param string $name
    * @param array $data
@@ -80,8 +81,6 @@ class Theme
     {
       $this->loadTemplateFile($name, $data);
     }
-
-    
   }
 
   /**
