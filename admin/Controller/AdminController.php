@@ -23,7 +23,10 @@ class AdminController extends Controller
 
     $this->auth = new Auth();
 
-    $this->checkAuthorization();
+    if ($this->auth->hashUser() == null ) {
+      header('Location: /admin/login/');
+      exit;
+    } 
   }
 
   /**
@@ -31,11 +34,14 @@ class AdminController extends Controller
    */
   public function checkAuthorization()
   {
-    if(!$this->auth->authorized()) {
-      // redirect login
-      header('Location: /admin/login/', true, 301);
-      exit;
-    }
+    
+  }
+
+  public function logout()
+  {
+    $this->auth->unAuthorize();
+    header('Location: /admin/login/');
+    exit;
   }
  
 }
