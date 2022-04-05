@@ -19,6 +19,8 @@ abstract class Controller
 
   protected $request;
 
+  protected $load;
+
   public function __construct(DI $di)
   {
     $this->di      = $di;  
@@ -26,5 +28,6 @@ abstract class Controller
     $this->view    = $this->di->get('view');
     $this->config  = $this->di->get('config');
     $this->request = $this->di->get('request');
+    $this->load = $this->di->get('load');
   }
 }

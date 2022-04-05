@@ -2,15 +2,18 @@
 
 namespace Admin\Controller;
 
-use Admin\Model\User\UserRepository;
-
 class DashboardController extends AdminController
 { 
   public function index()
   {
-    $userModel = new UserRepository($this->di);
+    $userModel = $this->load->model('User');
 
-    d($userModel->getUsers());
+    // d($userModel->repository->getUsers());
+
+    // $userModel->repository->test();
+
+    $userModel->repository->testNewUser();
+
 
     $this->view->render('dashboard');
   }

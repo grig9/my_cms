@@ -86,13 +86,21 @@ class QueryBuilder
     return $this;
   }
 
+  public function insert($table)
+  {
+    $this->reset();
+    $this->sql['insert'] = "INSERT INTO {$table} ";
+
+    return $this;
+  }
+
   /**
    * @param array $data
    * @return $this
    */
   public function set($data = [])
   {
-    $this->sql['set'] .= "SET ";
+    $this->sql['set'] = "SET ";
 
     if (!empty($data)) {
       foreach ($data as $key => $value) {
