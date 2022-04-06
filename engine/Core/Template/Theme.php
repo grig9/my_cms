@@ -91,6 +91,13 @@ class Theme
   public function loadTemplateFile($nameFile, $data = [])
   {
     $templateFile = ROOT_DIR . '/content/themes/default/' . $nameFile . '.php';
+    
+    if (ENV == 'Admin') {
+      $templateFile = ROOT_DIR . '/View/' . $nameFile . '.php';
+    } else {
+
+    }
+    
 
     if(is_file($templateFile))
     {
