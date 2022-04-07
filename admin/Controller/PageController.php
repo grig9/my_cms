@@ -15,8 +15,17 @@ class PageController extends AdminController
 
   public function create()
   {
-    $pageModel = $this->load->model('Page');
-
     $this->view->render('pages/create');
+  }
+
+  public function add()
+  {
+    echo "asdf";exit;
+    // $pageModel = $this->load->model('Page');
+    // $pageModel->repository->createPage($this->request->post);
+
+    //redirect
+    // header('Location: /admin/pages/');
+    // exit;
   }
 }
