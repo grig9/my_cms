@@ -8,7 +8,7 @@ class DashboardController extends AdminController
   {
     $userModel = $this->load->model('User');
 
-    // d($userModel->repository->getUsers());
+    d($userModel->repository->getUsers());
 
     // $userModel->repository->test();
 

@@ -65,6 +65,8 @@ trait ActiveRecord
           $this->queryBuilder->values
         );
       }
+
+      return $this->db->lastInsertId();
     } catch (\Exception $e) {
       echo $e->getMessage();
     }

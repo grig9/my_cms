@@ -21,7 +21,9 @@ class PageRepository extends Model
     $page = new Page;
     $page->setTitle($data['title']);
     $page->setContent($data['content']);
-    $page->save();
+    $pageId = $page->save();
+
+    return $pageId;
   }
 
 }

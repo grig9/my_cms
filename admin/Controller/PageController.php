@@ -20,9 +20,22 @@ class PageController extends AdminController
 
   public function add()
   {
-    echo "asdf";exit;
-    // $pageModel = $this->load->model('Page');
-    // $pageModel->repository->createPage($this->request->post);
+    $pageModel = $this->load->model('Page');
+
+    $params = $this->request->post;
+
+    var_dump($params);
+    exit;
+
+    // $pageId = $pageModel->repository->createPage($params);
+
+    // echo $pageId;
+    // d($params);
+    // if (isset($params['tittle'])) {
+    //   $pageId = $pageModel->repository->createPage($params);
+
+    //   echo $pageId;
+    // }
 
     //redirect
     // header('Location: /admin/pages/');

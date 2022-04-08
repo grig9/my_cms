@@ -1,15 +1,18 @@
 var page = {
-    ajaxMethod: 'POST',
 
     add: function() {
+        console.log('Tell me why??');
         var formData = new FormData();
 
-        formData.append('title', $('#formTitle').val());
-        formData.append('content', $('.redactor-editor').html());
+        formData.append('title', $('#title').val());
+        formData.append('content', $('#content').html());
+       
+        console.log(title);
+        // console.log(content);
 
         $.ajax({
             url: '/admin/page/add/',
-            type: this.ajaxMethod,
+            type: 'POST',
             data: formData,
             cache: false,
             processData: false,
@@ -17,8 +20,8 @@ var page = {
             beforeSend: function(){
 
             },
-            success: function(result){
-                console.log(result);
+            success: function(){
+                console.log("OK");                
             }
         });
     }
