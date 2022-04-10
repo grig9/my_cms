@@ -24,18 +24,11 @@ class PageController extends AdminController
 
     $params = $this->request->post;
 
-    var_dump($params);
-    exit;
+    if (isset($params['title'])) {
+      $pageId = $pageModel->repository->createPage($params);
 
-    // $pageId = $pageModel->repository->createPage($params);
-
-    // echo $pageId;
-    // d($params);
-    // if (isset($params['tittle'])) {
-    //   $pageId = $pageModel->repository->createPage($params);
-
-    //   echo $pageId;
-    // }
+      echo $pageId;
+    }
 
     //redirect
     // header('Location: /admin/pages/');

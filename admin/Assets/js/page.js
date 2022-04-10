@@ -5,11 +5,8 @@ var page = {
         var formData = new FormData();
 
         formData.append('title', $('#title').val());
-        formData.append('content', $('#content').html());
+        formData.append('content', $('.redactor-editor').html());
        
-        console.log(title);
-        // console.log(content);
-
         $.ajax({
             url: '/admin/page/add/',
             type: 'POST',
@@ -20,11 +17,9 @@ var page = {
             beforeSend: function(){
 
             },
-            success: function(){
-                console.log("OK");                
+            success: function(result){
+                console.log(result);                
             }
         });
     }
 };
-
-console.log(page);
