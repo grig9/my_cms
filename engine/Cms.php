@@ -39,8 +39,7 @@ class Cms
 
       $routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
 
-      if($routerDispatch == null)
-      {
+      if ($routerDispatch == null) {
         $routerDispatch = new DispatchedRoute('ErrorController:page404');
       }
       // list - используется для присвоения значений списку переменных в одной операции.
