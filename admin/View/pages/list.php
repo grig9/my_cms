@@ -6,7 +6,6 @@
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <a href="/admin/pages/create/" class="btn btn-success me-md-2">Create page</a>
     </div>
-    
 
     <table class="table mt-3">
       <thead>
@@ -24,6 +23,9 @@
             <td><?= $page['title'] ?></td>
             <td><?= $page['content'] ?></td>
             <td><?= $page['date'] ?></td>
+            <td>
+              <a href="/admin/page/edit/<?= $page['id'] ?>" class="btn btn-info">Edit</a>
+            </td>
           </tr>
         <?php endforeach ?>
       </tbody>
