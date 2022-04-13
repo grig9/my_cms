@@ -2,9 +2,9 @@
 
 <main class="my-3">
   <div class="container">
-    <h3>Pages</h3>
+    <h3>Posts</h3>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <a href="/admin/pages/create/" class="btn btn-success me-md-2">Create page</a>
+      <a href="/admin/posts/create/" class="btn btn-success me-md-2">Create post</a>
     </div>
 
     <table class="table mt-3">
@@ -17,14 +17,14 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($pages as $page) : ?>
+        <?php foreach ($posts as $post) : ?>
           <tr>
-            <th scope="row"><?= $page->id ?></th>
-            <td><?= $page->title ?></td>
-            <td><?= $page->content ?></td>
-            <td><?= $page->date ?></td>
+            <th scope="row"><?= $post->id ?></th>
+            <td><?= $post->title ?></td>
+            <td><?= $post->content ?></td>
+            <td><?= $post->date ?></td>
             <td>
-              <a href="/admin/page/edit/<?= $page->id ?>" class="btn btn-info">Edit</a>
+              <a href="/admin/post/edit/<?= $post->id?>" class="btn btn-info">Edit</a>
             </td>
           </tr>
         <?php endforeach ?>

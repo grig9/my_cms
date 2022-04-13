@@ -27,7 +27,6 @@ abstract class Model
     $this->di     = $di;  
     $this->db     = $this->di->get('db');
     $this->config = $this->di->get('config');
-
     $this->queryBuilder = new QueryBuilder();
   }
 }

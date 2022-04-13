@@ -48,13 +48,13 @@ class Connection
    * @param $values
    * @return array
    */
-  public function query($sql, $values = [])
+  public function query($sql, $values = [], $fetchMode = PDO::FETCH_OBJ)
   {
     $sth = $this->link->prepare($sql);
 
     $sth->execute($values);
 
-    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $result = $sth->fetchAll($fetchMode);
 
     if ($result === false) {
       return [];

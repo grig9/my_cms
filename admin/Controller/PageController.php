@@ -6,8 +6,9 @@ class PageController extends AdminController
 { 
   public function listing()
   {
+    
     $this->load->model('Page');
-
+    
     $pages = $this->model->page->getPages();
 
     $this->view->render('pages/list', ['pages' => $pages]);

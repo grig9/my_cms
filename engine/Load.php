@@ -4,7 +4,7 @@ namespace Engine;
 
 class Load
 {
-  const MASK_MODEL_ENTITY     = '\%s\Model\%s\%s';
+  // const MASK_MODEL_ENTITY     = '\%s\Model\%s\%s';
   const MASK_MODEL_REPOSITORY = '\%s\Model\%s\%sRepository';
 
   /**

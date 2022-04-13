@@ -21,19 +21,16 @@ abstract class Controller
 
   protected $load;
 
-  // protected $model;
-
   public function __construct(DI $di)
   {
     $this->di      = $di;  
-    $this->db      = $this->di->get('db');
-    $this->view    = $this->di->get('view');
-    $this->config  = $this->di->get('config');
-    $this->request = $this->di->get('request');
-    $this->load    = $this->di->get('load');
-    // $this->model   = $this->di->get('model');
+    // $this->db      = $this->di->get('db');
+    // $this->view    = $this->di->get('view');
+    // $this->config  = $this->di->get('config');
+    // $this->request = $this->di->get('request');
+    // $this->load    = $this->di->get('load');
 
-    // $this->initVars();
+    $this->initVars();
   }
 
   /**
@@ -57,7 +54,7 @@ abstract class Controller
         $this->{$var} = $this->di->get($var);
       }
     }
-    
+
     return $this;
   }
 }
