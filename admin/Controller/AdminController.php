@@ -32,6 +32,9 @@ class AdminController extends Controller
       header('Location: /admin/login/');
       exit;
     } 
+
+    // Load global language
+    $this->load->language('dashboard/menu');
   }
 
   /**

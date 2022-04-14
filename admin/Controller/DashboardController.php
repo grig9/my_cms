@@ -6,15 +6,13 @@ class DashboardController extends AdminController
 { 
   public function index()
   {
+    // Load models
     $userModel = $this->load->model('User');
 
-    d($userModel->repository->getUsers());
+    // Load language
+    $this->view->render('dashboard/main');
 
-    // $userModel->repository->test();
-
-    // $userModel->repository->testNewUser();
-
-
+    // Render this template
     $this->view->render('dashboard');
   }
 }

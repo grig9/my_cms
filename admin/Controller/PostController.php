@@ -28,29 +28,29 @@ class PostController extends AdminController
     $this->view->render('posts/edit', $this->data);
   }
 
-  // public function add()
-  // {
-  //   $this->load->model('Page');
+  public function add()
+  {
+    $this->load->model('Post');
 
-  //   $params = $this->request->post;
+    $params = $this->request->post;
 
-  //   if (isset($params['title'])) {
-  //     $pageId = $this->model->page->createPage($params);
+    if (isset($params['title'])) {
+      $postId = $this->model->post->createPost($params);
 
-  //     echo $pageId;
-  //   }
-  // }
+      echo $postId;
+    }
+  }
 
-  // public function update()
-  // {
-  //   $this->load->model('Page');
+  public function update()
+  {
+    $this->load->model('Post');
 
-  //   $params = $this->request->post;
+    $params = $this->request->post;
     
-  //   if (isset($params['title'])) {
-  //     $pageId = $this->model->page->updatePage($params);
+    if (isset($params['title'])) {
+      $postId = $this->model->post->updatePost($params);
 
-  //     echo $pageId;
-  //   }
-  // }
+      echo $postId;
+    }
+  }
 }

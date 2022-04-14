@@ -12,7 +12,7 @@
                     <form id="formPage" method="POST">
                         <div class="form-group">
                             <label for="formTitle">Title</label>
-                            <input type="text" name="title" class="form-control" id="title" placeholder="Title page...">
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Title post...">
                         </div>
                         <div class="form-group">
                             <label for="formContent">Content</label>

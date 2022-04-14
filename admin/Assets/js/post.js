@@ -4,10 +4,10 @@ var post = {
     add: function() {
         var formData = new FormData();
 
+        console.log('sdfasd');
+
         formData.append('title', $('#title').val());
         formData.append('content', $('.redactor-editor').html());
-       
-        console.log($('#title').val());
 
         $.ajax({
             url: '/admin/post/add/',
