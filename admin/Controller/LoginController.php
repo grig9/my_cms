@@ -48,7 +48,7 @@ class LoginController extends Controller
         ->limit(1)
         ->sql();
 
-    $query = $this->db->query($sql, $queryBuilder->values);
+    $query = $this->db->query($sql, $queryBuilder->values, \PDO::FETCH_ASSOC);
   
     if(!empty($query))
     {

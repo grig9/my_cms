@@ -8,6 +8,8 @@ use Exception;
 
 class View
 {
+  public $di;
+
   /**
    * @var \Engine\Core\Template\Theme
    */
@@ -16,8 +18,9 @@ class View
   /**
    * View constructor.
    */
-  public function __construct()
+  public function __construct($di)
   {
+    $this->di    = $di;
     $this->theme = new Theme();
   }
 
@@ -27,7 +30,7 @@ class View
    * @throws \Exception
    */
   public function render($template, $vars = [])
-  {
+  {    
     $templatePath = $this->getTemplatePath($template, ENV);
 
     if(!is_file($templatePath))
@@ -37,14 +40,17 @@ class View
       );
     }
 
-    $this->theme->setData($vars);
-    extract($vars); // формирует переменные из ассоциативного массива
+    // Add language in this template
+    $vars['lang'] = $this->di->get('language');
 
+    $this->theme->setData($vars);
+
+    extract($vars); // формирует переменные из ассоциативного массива
     ob_start(); // включение буферизации вывода
     ob_implicit_flush(0); // включение/выключение неявного сброса
 
     try {
-      require $templatePath;
+      require($templatePath);
     } catch (\Exception $e) {
         ob_end_clean(); // очистить (стереть) буфер вывода и отключить буферизацию вывода
         throw $e;
@@ -65,6 +71,6 @@ class View
       return ROOT_DIR . '/content/themes/default/' . $template . '.php';
     }
 
-    return ROOT_DIR . '/View/' . $template . '.php';
+    return path('view') . DIRECTORY_SEPARATOR . $template . '.php';
   }
 }

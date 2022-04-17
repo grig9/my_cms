@@ -6,7 +6,7 @@ class PageController extends AdminController
 { 
   public function listing()
   {
-    
+    // Load model
     $this->load->model('Page');
     
     $pages = $this->model->page->getPages();
