@@ -2,6 +2,8 @@
 
 namespace Engine\Core\Template;
 
+use Engine\Core\Config\Config;
+
 class Theme
 {
   const RULES_NAME_FILE = [
@@ -9,6 +11,10 @@ class Theme
     'footer'  => 'footer-%s',
     'sidebar' => 'sidebar-%s',
   ];
+
+  const URL_THEME_MASK = '/content/themes/default/%s'; // проблема не подставляется default
+
+
 
   /**
    * Url current theme
@@ -20,6 +26,13 @@ class Theme
    * @var array
    */
   protected static $data = [];
+
+  public static function getUrl()
+  {
+    $currentTheme = Config::item('defaultTheme', 'main');
+
+    return sprintf(self::URL_THEME_MASK, $currentTheme);
+  }
 
   /**
    * @param null $name
