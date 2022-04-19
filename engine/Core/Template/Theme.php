@@ -27,6 +27,22 @@ class Theme
    */
   protected static $data = [];
 
+  /**
+   * @var Asset
+   */
+  public $asset;
+
+  /**
+   * @var Theme
+   */
+  public $theme;
+
+  public function __construct()
+  {
+    $this->theme = $this;
+    $this->asset = new Asset();
+  }
+
   public static function getUrl()
   {
     $currentTheme = Config::item('defaultTheme', 'main');
